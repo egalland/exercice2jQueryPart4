@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <title>Exercice 2</title>
+</head>
+<body>
+<!-- Demander à l'aide d'un formulaire les 5 dernières notes d'un élève.
+
+Calculer sa moyenne et déterminer son appréciation.
+
+    Si la moyenne de l'élève est supérieure ou égale à 0 et inférieure à 10, il aura comme appréciation : "En dessous de la moyenne".
+    Si la moyenne de l'élève est supérieure ou égale à 10 et inférieure à 13, il aura comme appréciation : "Moyen".
+    Si la moyenne de l'élève est supérieure ou égale à 13 et inférieure à 16, il aura comme appréciation : "Bien".
+    Si la moyenne de l'élève est supérieure ou égale à 16 et inférieure à 20, il aura comme appréciation : "Très bien".
+    Si la moyenne de l'élève est égale à 20, il aura comme appréciation : "Excellent".
+
+Afficher la moyenne et l'appréciation de l'élève. -->
+  <form>
+    <ul>
+      <li>
+        <label for="firstNote">Note : </label>
+        <input type="text" name="note" id="firstNote" />
+      </li>
+      <li>
+        <label for="secondNote">Note : </label>
+        <input type="text" name="note" id="secondNote" />
+      </li>
+      <li>
+        <label for="thirdNote">Note : </label>
+        <input type="text" name="note" id="thirdNote" />
+      </li>
+      <li>
+        <label for="fourthNote">Note : </label>
+        <input type="text" name="note" id="fourthNote" />
+      </li>
+      <li>
+        <label for="fifthNote">Note : </label>
+        <input type="text" name="note" id="fifthNote" />
+      </li>
+      <li>
+        <button type="button" id="noteFormButton" style="height: 80px; width: 150px;">Valider</button>
+      </li>
+    </ul>
+  </form>
+  <div id="result"></div>
+  <script>
+  // QUAND ON CLIQUE SUR LE BOUTON, ON DECLANCHE LA FONCTION
+    $('#noteFormButton').click(function(){
+      // DECLARATION ET INITIALISATION DES VARIABLES POUR CHAQUE NOTES
+      var firstNote = parseInt($('#firstNote').val());
+      var secondNote = parseInt($('#secondNote').val());
+      var thirdNote = parseInt($('#thirdNote').val());
+      var fourthNote = parseInt($('#fourthNote').val());
+      var fifthNote = parseInt($('#fifthNote').val());
+      // DECLARATION ET CALCUL DE LA MOYENNE DES 5 NOTES;
+      var moyenneNote = (firstNote + secondNote + thirdNote + fourthNote + fifthNote) / 5;
+      // COMPARAISON DES NOTES ET ATTRIBUTION DE L'APPRECIATION
+      if(moyenneNote < 10){
+        var comment = 'En dessous de la moyenne';
+      }else if(moyenneNote < 13){
+        comment = 'Moyen';
+      }else if(moyenneNote < 16){
+        comment = 'Bien';
+      }else if(moyenneNote < 20){
+        comment = 'Très bien';
+      }else{
+        comment = 'Excellent';
+      }
+      // AFFICHAGE DE L'APPRECIATION ET DE LA MOYENNE
+      $('#result').text(comment + ' ' + moyenneNote);
+    });
+  </script>
+</body>
+</html>
